@@ -137,10 +137,6 @@ The following API endpoints are available:
 - **Response:**
 - `200`: Successful response.
 
-## Contributing
 
-Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please submit a pull request. Before submitting a pull request, make sure to run the tests and ensure they pass.
-
-## License
 
 This project is licensed under the [MIT License](LICENSE).
