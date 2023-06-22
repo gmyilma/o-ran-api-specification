@@ -1,13 +1,27 @@
 
+# Unified Network Slice Lifecycle Management API
+
+This repository contains the Swagger specification for the Unified Network Slice Lifecycle Management API. The API defines the endpoints and their functionalities for managing network slices in a unified manner.
+
+## Getting Started
+
+To use the Unified Network Slice Lifecycle Management API, follow these steps:
+
+1. Clone the repository to your local machine:
+
+
+
 2. Review the Swagger specification file:
 
-- Open `swagger.yaml` to access the detailed API documentation. The specification provides information about each endpoint, including the supported methods, input parameters, and expected responses.
+- Open `oran-api-spec-swagger.yaml` to access the detailed API documentation. The specification provides information about each endpoint, including the supported methods, input parameters, and expected responses.
 
 3. Choose a method to interact with the API:
 
 - Use a Swagger UI tool like [Swagger UI](https://swagger.io/tools/swagger-ui/) or [ReDoc](https://redoc.ly/) to visualize and test the API endpoints directly from the Swagger specification file.
 
 - Integrate the API into your application or tool by generating client code or using libraries compatible with Swagger specifications. You can use tools like [Swagger Codegen](https://swagger.io/tools/swagger-codegen/) to generate client code in various programming languages.
+
+  - example end point https://app.swaggerhub.com/apis/gmyilma/unified-network_slice_lifecycle_management_api/1.0.0
 
 ## API Endpoints
 
