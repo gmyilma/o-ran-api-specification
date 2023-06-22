@@ -1,69 +1,132 @@
-# API Specification
 
-This API specification document provides details about the available endpoints and their corresponding interfaces. The API follows the Swagger version 2.0 specification.
+2. Review the Swagger specification file:
 
-## Endpoints
+- Open `swagger.yaml` to access the detailed API documentation. The specification provides information about each endpoint, including the supported methods, input parameters, and expected responses.
 
-### SMO Framework-Cellular Site Interface
+3. Choose a method to interact with the API:
 
-- **Endpoint**: `/o1`
-- **Method**: GET
-- **Summary**: SMO Framework-Cellular Site Interface
-- **Description**:
-  This proposed logical interface aims to connect the SMO Framework and cellular network sites in order to support FCAPS capabilities for the underlying cellular network sites.
-  The scope of this interface is similar to the O1 interfaces that connect the SMO Framework to the O-RAN NFs.
-  It is expected that this interface will align, to the extent possible, with the 3GPP specifications for element management in the RAN architecture.
+- Use a Swagger UI tool like [Swagger UI](https://swagger.io/tools/swagger-ui/) or [ReDoc](https://redoc.ly/) to visualize and test the API endpoints directly from the Swagger specification file.
 
-### O-RU-Cellular Site Interface
+- Integrate the API into your application or tool by generating client code or using libraries compatible with Swagger specifications. You can use tools like [Swagger Codegen](https://swagger.io/tools/swagger-codegen/) to generate client code in various programming languages.
 
-- **Endpoint**: `/cellular-site/notification`
-- **Method**: POST
-- **Summary**: O-RU-Cellular Site Interface
-- **Description**:
-  The CellularSite Notification interface enables the logical functionalities of the O-RU, which are deployed on cellular network sites, to subscribe to events and/or status updates from the underlying cellular network sites.
-  The cellular network sites will include event producers to allow radio resource workloads to receive events and/or status updates that are only known to the underlying cellular infrastructure.
-  This interface is particularly important. [Girma's opinion on O-RU Pool...]
+## API Endpoints
 
-### NC-OBH Interface
+The following API endpoints are available:
 
-- **Endpoint**: `/o2/nc-obh`
-- **Method**: POST
-- **Summary**: NC-OBH Interface
-- **Description**:
-  This interface logically connects the NC and OBH. It is utilized by the WIM and NC to manage the OBH transport links and orchestrate their respective networking resources.
-  Further discussion of this interface is beyond the scope of this article.
+### NSSMF_NonRTRIC
 
-### NC-OMH Interface
+#### Create a new NSSMF-Non-RT RIC entry
 
-- **Endpoint**: `/o2/nc-omh`
-- **Method**: POST
-- **Summary**: NC-OMH Interface
-- **Description**:
-  This logical interface connects the NC and OMH. The WIM and NC utilize this interface to manage the OMH transport links and orchestrate their corresponding networking resources.
-  The scope of this article precludes any further discussion of this interface.
+- **Endpoint:** `POST /NSSMF_NonRTRIC`
+- **Summary:** Create a new NSSMF-Non-RT RIC entry.
+- **Description:** Creates a new entry for the NSSMF-Non-RT RIC interface.
+- **Parameters:**
+- `nssmfNonRtricRequest` (body): Request parameters for NSSMF-Non-RT RIC interface (see `NSSMFNonRTRICRequest` definition).
+- **Response:**
+- `200`: Successful response.
 
-### NC-OFH Interface
+#### Get an NSSMF-Non-RT RIC entry by ID
 
-- **Endpoint**: `/o2/nc-ofh`
-- **Method**: POST
-- **Summary**: NC-OFH Interface
-- **Description**:
-  This interface connects the NC and OFH logically. The WIM and NC employ this interface to manage the OFH transport links and orchestrate their corresponding networking resources.
-  A detailed analysis of this interface goes beyond the scope of this study.
+- **Endpoint:** `GET /NSSMF_NonRTRIC/{id}`
+- **Summary:** Get an NSSMF-Non-RT RIC entry by ID.
+- **Description:** Retrieves an existing NSSMF-Non-RT RIC entry by ID.
+- **Parameters:**
+- `id` (path): The ID of the NSSMF-Non-RT RIC entry.
+- **Response:**
+- `200`: Successful response.
 
-### O-RAN NSSMF Termination
+#### Update an NSSMF-Non-RT RIC entry by ID
 
-- **Endpoint**: `/o-ran-nssmf-termination`
-- **Method**: POST
-- **Summary**: O-RAN NSSMF Termination
-- **Description**:
-  The O-RAN NSSMF Termination enables the O-RAN NSSMF to send and receive messages to and from the Non-RT RIC Framework via the NSSMF_NonRTRIC interface.
-  These messages include: (a) handshaking messages between the Non-RT RIC and 3GPP-NSMS; (b) ; (c) ; (d) ; and (e).
+- **Endpoint:** `PUT /NSSMF_NonRTRIC/{id}`
+- **Summary:** Update an NSSMF-Non-RT RIC entry by ID.
+- **Description:** Updates an existing NSSMF-Non-RT RIC entry by ID.
+- **Parameters:**
+- `id` (path): The ID of the NSSMF-Non-RT RIC entry.
+- `nssmfNonRtricRequest` (body): Updated request parameters for NSSMF-Non-RT RIC interface (see `NSSMFNonRTRICRequest` definition).
+- **Response:**
+- `200`: Successful response.
 
-### NFVO Termination
+#### Delete an NSSMF-Non-RT RIC entry by ID
 
-- **Endpoint**: `/nfvo-termination`
-- **Method**: POST
-- **Summary**: NFVO Termination
-- **Description**:
-  The NFVO Termination facilitates the exchanges of messages between the NFVO
+- **Endpoint:** `DELETE /NSSMF_NonRTRIC/{id}`
+- **Summary:** Delete an NSSMF-Non-RT RIC entry by ID.
+- **Description:** Deletes an existing NSSMF-Non-RT RIC entry by ID.
+- **Parameters:**
+- `id` (path): The ID of the NSSMF-Non-RT RIC entry.
+- **Response:**
+- `200`: Successful response.
+
+### NFVO_NonRTRIC
+
+#### Create a new NFVO-Non-RT RIC entry
+
+- **Endpoint:** `POST /NFVO_NonRTRIC`
+- **Summary:** Create a new NFVO-Non-RT RIC entry.
+- **Description:** Creates a new entry for the NFVO-Non-RT RIC interface.
+- **Parameters:**
+- `nfvoNonRtricRequest` (body): Request parameters for NFVO-Non-RT RIC interface (see `NFVONonRTRICRequest` definition).
+- **Response:**
+- `200`: Successful response.
+
+#### Get an NFVO-Non-RT RIC entry by ID
+
+- **Endpoint:** `GET /NFVO_NonRTRIC/{id}`
+- **Summary:** Get an NFVO-Non-RT RIC entry by ID.
+- **Description:** Retrieves an existing NFVO-Non-RT RIC entry by ID.
+- **Parameters:**
+- `id` (path): The ID of the NFVO-Non-RT RIC entry.
+- **Response:**
+- `200`: Successful response.
+
+#### Update an NFVO-Non-RT RIC entry by ID
+
+- **Endpoint:** `PUT /NFVO_NonRTRIC/{id}`
+- **Summary:** Update an NFVO-Non-RT RIC entry by ID.
+- **Description:** Updates an existing NFVO-Non-RT RIC entry by ID.
+- **Parameters:**
+- `id` (path): The ID of the NFVO-Non-RT RIC entry.
+- `nfvoNonRtricRequest` (body): Updated request parameters for NFVO-Non-RT RIC interface (see `NFVONonRTRICRequest` definition).
+- **Response:**
+- `200`: Successful response.
+
+#### Delete an NFVO-Non-RT RIC entry by ID
+
+- **Endpoint:** `DELETE /NFVO_NonRTRIC/{id}`
+- **Summary:** Delete an NFVO-Non-RT RIC entry by ID.
+- **Description:** Deletes an existing NFVO-Non-RT RIC entry by ID.
+- **Parameters:**
+- `id` (path): The ID of the NFVO-Non-RT RIC entry.
+- **Response:**
+- `200`: Successful response.
+
+### NSSMF_Termination
+
+#### Message exchange between NSSMF and Non-RT RIC
+
+- **Endpoint:** `POST /NSSMF_Termination`
+- **Summary:** Message exchange between NSSMF and Non-RT RIC.
+- **Description:** Facilitates message exchange between NSSMF and Non-RT RIC via the NSSMF_NonRTRIC interface.
+- **Parameters:**
+- `nssmfTerminationRequest` (body): Request parameters for NSSMF Termination (see `NSSMFTerminationRequest` definition).
+- **Response:**
+- `200`: Successful response.
+
+### NFVO_Termination
+
+#### Message exchange between NFVO and Non-RT RIC
+
+- **Endpoint:** `POST /NFVO_Termination`
+- **Summary:** Message exchange between NFVO and Non-RT RIC.
+- **Description:** Facilitates message exchange between NFVO and Non-RT RIC via the NFVO_NonRTRIC interface.
+- **Parameters:**
+- `nfvoTerminationRequest` (body): Request parameters for NFVO Termination (see `NFVOTerminationRequest` definition).
+- **Response:**
+- `200`: Successful response.
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please submit a pull request. Before submitting a pull request, make sure to run the tests and ensure they pass.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
